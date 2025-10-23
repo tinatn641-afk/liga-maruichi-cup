@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hasil Pertandingan | Liga Maruichi Cup</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, rgba(20,15,15,0.9), rgba(122,23,23,0.8)), url('trophy.jpg') no-repeat center/cover;
+      color: #fff;
+      margin: 0; padding: 0;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255,255,255,0.1);
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+    .result {
+      max-width: 600px;
+      margin: 30px auto;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 15px;
+    }
+    .match {
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      padding: 10px 0;
+    }
+    .match:last-child { border: none; }
+    .match h3 { color: #ffdede; margin: 0 0 5px; }
+    a.back {
+      display: inline-block;
+      color: #fff;
+      background: #b22222;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin: 20px;
+      transition: 0.3s;
+    }
+    a.back:hover { background: #fff; color: #b22222; }
+  </style>
+</head>
+<body>
+  <header>🏆 Hasil Pertandingan</header>
+  <div class="result">
+    <div class="match">
+      <h3>Futsal - Team A vs Team B</h3>
+      <p>Skor: 3 - 1</p>
+    </div>
+    <div class="match">
+      <h3>Badminton - Team C vs Team D</h3>
+      <p>Skor: 2 - 0</p>
+    </div>
+    <div class="match">
+      <h3>Futsal - Team E vs Team F</h3>
+      <p>Skor: 1 - 1</p>
+    </div>
+  </div>
+  <div style="text-align:center;">
+    <a href="admin_dashboard.html" class="back">⬅ Kembali</a>
+  </div>
+</body>
+</html>

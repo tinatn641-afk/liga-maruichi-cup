@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pendaftaran Liga Maruichi Cup</title>
+  <style>
+    :root {
+      --maroon-1: #5a0f0f;
+      --maroon-2: #7a1717;
+      --accent: #b22222;
+      --bg: #fff7f7;
+      --card: #fff;
+      --text: #2b2b2b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg), #fff);
+      color: var(--text);
+      margin: 0;
+      padding: 24px;
+    }
+
+    /* ===== Header ===== */
+    header {
+      max-width: 1000px;
+      margin: 0 auto 24px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .logo-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 12px;
+      background-color: #fff;
+      padding: 6px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      font-size: 22px;
+      color: var(--maroon-1);
+    }
+    p.lead {
+      margin-top: 4px;
+      color: #5a5a5a;
+      font-size: 14px;
+    }
+
+    /* ===== Container ===== */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 20px;
+      transition: all 0.3s ease;
+    }
+
+    /* ===== Card ===== */
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(90,15,15,0.08);
+      border: 1px solid rgba(90,15,15,0.06);
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: var(--maroon-1);
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+
+    /* ===== Form Fields ===== */
+    form .row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .field {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 120px;
+    }
+
+    label {
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: #4a1515;
+      font-weight: 600;
+    }
+
+    input[type=text],
+    input[type=file],
+    select {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #e6cfcf;
+      transition: 0.2s;
+    }
+
+    input[type=text]:focus,
+    input[type=file]:focus {
+      outline: none;
+      border-color: var(--maroon-2);
+      box-shadow: 0 0 4px rgba(122, 23, 23, 0.3);
+    }
+
+    input[type=text]::placeholder { color: #bfa6a6; }
+
+    .players {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 8px;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #6b2b2b;
+      margin-top: 8px;
+    }
+
+    /* ===== Buttons ===== */
+    .btn-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background: var(--maroon-2);
+      color: #fff;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: var(--accent);
+      transform: scale(1.05);
+    }
+
+    button.secondary {
+      background: transparent;
+      color: var(--maroon-2);
+      border: 1px solid var(--maroon-2);
+    }
+
+    button.secondary:hover {
+      background: var(--maroon-2);
+      color: #fff;
+    }
+
+    /* ===== Animations ===== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 600px) {
+      h1 { font-size: 18px; }
+      .logo-img { width: 70px; height: 70px; }
+      button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <img src="maruichi.png" alt="Logo Maruichi" class="logo-img">
+  <div>
+    <h1>PENDAFTARAN LIGA MARUICHI CUP</h1>
+    <p class="lead">HUT KE-22 PUK FSPMI PT. MARUICHI INDONESIA — Pilih cabang lalu isi formulir pendaftaran</p>
+  </div>
+</header>
+
+<main class="container">
+  <!-- Badminton -->
+  <section class="card">
+    <h2>CABANG OLAHRAGA: BADMINTON</h2>
+    <form id="form-badminton" onsubmit="handleSubmit(event,'badminton')" enctype="multipart/form-data">
+      <div class="row">
+        <div class="field">
+          <label for="team-bad">Nama Tim</label>
+          <input id="team-bad" name="team" type="text" placeholder="Contoh: Tim Merah" required />
+        </div>
+        <div class="field">
+          <label for="dept-bad">Departement</label>
+          <input id="dept-bad" name="departement" type="text" placeholder="Contoh: Produksi" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Nama Pemain (2 orang)</label>
+        <div class="players">
+          <input name="player_name[]" type="text" placeholder="Pemain 1 - Nama" required />
+          <input name="player_nik[]" type="text" placeholder="Pemain 1 - NIK" required />
+          <input name="player_name[]" type="text" placeholder="Pemain 2 - Nama" required />
+          <input name="player_nik[]" type="text" placeholder="Pemain 2 - NIK" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="file-bad">Bukti Pembayaran (jpg/png/pdf)</label>
+        <input id="file-bad" name="payment_proof" type="file" accept="image/*,application/pdf" required />
+      </div>
+
+      <div class="btn-row">
+        <button type="submit">Daftar Badminton</button>
+        <button type="reset" class="secondary">Reset</button>
+      </div>
+      <p class="note">Catatan: Pastikan semua pemain sudah terdaftar dan NIK benar.</p>
+    </form>
+  </section>
+
+  <!-- Futsal -->
+  <section class="card">
+    <h2>CABANG OLAHRAGA: FUTSAL</h2>
+    <form id="form-futsal" onsubmit="handleSubmit(event,'futsal')" enctype="multipart/form-data">
+      <div class="row">
+        <div class="field">
+          <label for="team-fut">Nama Tim</label>
+          <input id="team-fut" name="team" type="text" placeholder="Contoh: FC Maruichi" required />
+        </div>
+        <div class="field">
+          <label for="dept-fut">Departement</label>
+          <input id="dept-fut" name="departement" type="text" placeholder="Contoh: Gudang" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Nama Pemain (6 orang)</label>
+        <div class="players">
+          <input name="player_name[]" type="text" placeholder="Pemain 1 - Nama" required />
+          <input name="player_nik[]" type="text" placeholder="Pemain 1 - NIK" required />
+          <input name="player_name[]" type="text" placeholder="Pemain 2 - Nama" required />
+          <input name="player_nik[]" type="text" placeholder="Pemain 2 - NIK" required />
+          <input name="player_name[]" type="text" placeholder="Pemain 3 - Nama" required />
+          <input name="player_nik[]" type="text" placeholder="Pemain 3 - NIK" required />
+          <input name="player_name[]" type="text" placeholder="Pemain 4 - Nama" required />
+          <input name="player_nik[]" type="text" placeholder="Pemain 4 - NIK" required />
+          <input name="player_name[]" type="text" placeholder="Pemain 5 - Nama" required />
+          <input name="player_nik[]" type="text" placeholder="Pemain 5 - NIK" required />
+          <input name="player_name[]" type="text" placeholder="Pemain 6 - Nama" required />
+          <input name="player_nik[]" type="text" placeholder="Pemain 6 - NIK" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="file-fut">Bukti Pembayaran (jpg/png/pdf)</label>
+        <input id="file-fut" name="payment_proof" type="file" accept="image/*,application/pdf" required />
+      </div>
+
+      <div class="btn-row">
+        <button type="submit">Daftar Futsal</button>
+        <button type="reset" class="secondary">Reset</button>
+      </div>
+      <p class="note">Catatan: Pastikan semua pemain sudah terdaftar dan NIK benar.</p>
+    </form>
+  </section>
+</main>
+
+<script>
+function handleSubmit(e, type){
+  e.preventDefault();
+  const form = e.target;
+  const names = Array.from(form.querySelectorAll('input[name="player_name[]"]')).map(i=>i.value.trim());
+  const niks = Array.from(form.querySelectorAll('input[name="player_nik[]"]')).map(i=>i.value.trim());
+
+  if(type === 'badminton' && (names.length !== 2 || niks.length !== 2)){
+    alert('Badminton: isi tepat 2 pemain dan 2 NIK.');
+    return;
+  }
+  if(type === 'futsal' && (names.length !== 6 || niks.length !== 6)){
+    alert('Futsal: isi tepat 6 pemain dan 6 NIK.');
+    return;
+  }
+
+  alert('Form ' + type.toUpperCase() + ' berhasil divalidasi (belum tersimpan ke server).');
+}
+</script>
+</body>
+</html>

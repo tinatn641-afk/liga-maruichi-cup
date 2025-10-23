@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pendaftaran Badminton | Liga Maruichi Cup</title>
+  <style>
+    :root {
+      --maroon-1: #5a0f0f;
+      --maroon-2: #7a1717;
+      --accent: #b22222;
+      --bg: #fff7f7;
+      --card: #fff;
+      --text: #2b2b2b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg), #fff);
+      color: var(--text);
+      padding: 24px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .logo-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+    h1 { color: var(--maroon-1); margin-top: 10px; font-size: 1.4rem; }
+    p { color: #5a5a5a; font-size: 14px; }
+    form {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 6px 18px rgba(90,15,15,0.08);
+    }
+    label { display: block; margin-bottom: 6px; color: var(--maroon-1); font-weight: 600; }
+    input[type=text], input[type=file] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #e6cfcf;
+      margin-bottom: 10px;
+    }
+    .players { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    button {
+      background: var(--maroon-2);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-right: 8px;
+    }
+    button.secondary {
+      background: transparent;
+      color: var(--maroon-2);
+      border: 1px solid var(--maroon-2);
+    }
+    footer { text-align: center; margin-top: 20px; color: #777; font-size: 13px; }
+
+    /* --- Tambahan Syarat & Peraturan --- */
+    .rules-section {
+      max-width: 700px;
+      margin: 40px auto;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px 24px;
+      box-shadow: 0 6px 18px rgba(90,15,15,0.08);
+      line-height: 1.6;
+    }
+    .rules-section h2 {
+      color: var(--maroon-2);
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      border-left: 5px solid var(--accent);
+      padding-left: 10px;
+    }
+    .rules-section ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+    .rules-section li {
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <img src="maruichi.png" class="logo-img" alt="Logo Maruichi">
+  <h1>PENDAFTARAN LIGA MARUICHI CUP - BADMINTON</h1>
+  <p>HUT KE-22 PUK FSPMI PT. MARUICHI INDONESIA</p>
+</header>
+
+<form id="form-badminton" onsubmit="handleSubmit(event)">
+  <label>Nama Tim</label>
+  <input name="team" type="text" placeholder="Contoh: Tim Merah" required>
+
+  <label>Departement</label>
+  <input name="departement" type="text" placeholder="Contoh: Produksi" required>
+
+  <label>Nama Pemain (2 Orang)</label>
+  <div class="players">
+    <input name="player_name[]" type="text" placeholder="Pemain 1 - Nama" required>
+    <input name="player_nik[]" type="text" placeholder="Pemain 1 - NIK" required>
+    <input name="player_name[]" type="text" placeholder="Pemain 2 - Nama" required>
+    <input name="player_nik[]" type="text" placeholder="Pemain 2 - NIK" required>
+  </div>
+
+  <label>Bukti Pembayaran (jpg/png/pdf)</label>
+  <input name="payment_proof" type="file" accept="image/*,application/pdf" required>
+
+  <button type="submit">Daftar Badminton</button>
+  <button type="reset" class="secondary">Reset</button>
+</form>
+
+<!-- Bagian Syarat & Ketentuan -->
+<section class="rules-section">
+  <h2>Syarat & Ketentuan Pendaftaran</h2>
+  <ul>
+    <li>Peserta merupakan karyawan aktif PT. Maruichi Indonesia.</li>
+    <li>Satu tim terdiri dari <strong>2 orang pemain (ganda)</strong>.</li>
+    <li>Pendaftaran ditutup pada tanggal <strong>30 Oktober 2025</strong>.</li>
+    <li>Biaya pendaftaran sebesar <strong>Rp 50.000 / tim</strong>.</li>
+    <li>Pembayaran dilakukan ke panitia dan bukti pembayaran wajib diunggah saat mendaftar.</li>
+    <li>Setiap pemain hanya boleh terdaftar di <strong>satu tim</strong>.</li>
+    <li>Data yang telah dikirim tidak dapat diubah setelah dikonfirmasi oleh panitia.</li>
+  </ul>
+</section>
+
+<!-- Bagian Peraturan Pertandingan -->
+<section class="rules-section">
+  <h2>Peraturan Pertandingan Badminton Liga Maruichi Cup</h2>
+  <ul>
+    <li>Sistem pertandingan menggunakan <strong>gugur (knockout)</strong>.</li>
+    <li>Pertandingan menggunakan <strong>1 set 21 poin (rally point)</strong>.</li>
+    <li>Wasit dan panitia berhak memberikan keputusan akhir yang bersifat mutlak.</li>
+    <li>Pemain wajib hadir minimal <strong>10 menit sebelum jadwal pertandingan</strong>.</li>
+    <li>Pemain wajib menggunakan <strong>sepatu olahraga dan pakaian sopan</strong>.</li>
+    <li>Tim yang terlambat lebih dari 10 menit dianggap <strong>WO (Walk Over)</strong>.</li>
+    <li>Segala bentuk protes disampaikan secara sopan kepada panitia maksimal 10 menit setelah pertandingan.</li>
+    <li>Keputusan panitia bersifat final dan tidak dapat diganggu gugat.</li>
+  </ul>
+</section>
+
+<footer>PT. MARUICHI INDONESIA • 2025</footer>
+
+<script>
+function handleSubmit(e){
+  e.preventDefault();
+  alert("Form BADMINTON berhasil divalidasi (belum tersimpan ke server).");
+}
+</script>
+</body>
+</html>

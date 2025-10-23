@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pendaftaran Badminton | Liga Maruichi Cup</title>
+  <style>
+    :root {
+      --maroon-1: #5a0f0f;
+      --maroon-2: #7a1717;
+      --accent: #b22222;
+      --bg: #fff7f7;
+      --card: #fff;
+      --text: #2b2b2b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg), #fff);
+      color: var(--text);
+      padding: 24px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .logo-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+    h1 { color: var(--maroon-1); margin-top: 10px; }
+    p { color: #5a5a5a; font-size: 14px; }
+    form {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 6px 18px rgba(90,15,15,0.08);
+    }
+    label { display: block; margin-bottom: 6px; color: var(--maroon-1); font-weight: 600; }
+    input[type=text], input[type=file] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #e6cfcf;
+      margin-bottom: 10px;
+    }
+    .players { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    button {
+      background: var(--maroon-2);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-right: 8px;
+    }
+    button.secondary {
+      background: transparent;
+      color: var(--maroon-2);
+      border: 1px solid var(--maroon-2);
+    }
+    footer { text-align: center; margin-top: 20px; color: #777; font-size: 13px; }
+  </style>
+</head>
+<body>
+<header>
+  <img src="maruichi.png" class="logo-img" alt="Logo Maruichi">
+  <h1>PENDAFTARAN LIGA MARUICHI CUP - BADMINTON</h1>
+  <p>HUT KE-22 PUK FSPMI PT. MARUICHI INDONESIA</p>
+</header>
+
+<form id="form-badminton" onsubmit="handleSubmit(event)">
+  <label>Nama Tim</label>
+  <input name="team" type="text" placeholder="Contoh: Tim Merah" required>
+
+  <label>Departement</label>
+  <input name="departement" type="text" placeholder="Contoh: Produksi" required>
+
+  <label>Nama Pemain (2 Orang)</label>
+  <div class="players">
+    <input name="player_name[]" type="text" placeholder="Pemain 1 - Nama" required>
+    <input name="player_nik[]" type="text" placeholder="Pemain 1 - NIK" required>
+    <input name="player_name[]" type="text" placeholder="Pemain 2 - Nama" required>
+    <input name="player_nik[]" type="text" placeholder="Pemain 2 - NIK" required>
+  </div>
+
+  <label>Bukti Pembayaran (jpg/png/pdf)</label>
+  <input name="payment_proof" type="file" accept="image/*,application/pdf" required>
+
+  <button type="submit">Daftar Badminton</button>
+  <button type="reset" class="secondary">Reset</button>
+</form>
+
+<footer>PT. MARUICHI INDONESIA • 2025</footer>
+
+<script>
+function handleSubmit(e){
+  e.preventDefault();
+  alert("Form BADMINTON berhasil divalidasi (belum tersimpan ke server).");
+}
+</script>
+</body>
+</html>

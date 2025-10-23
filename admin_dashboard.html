@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard Admin | Liga Maruichi Cup</title>
+  <style>
+    :root {
+      --maroon-1: #5a0f0f;
+      --maroon-2: #7a1717;
+      --accent: #b22222;
+      --light: #fff;
+      --dark: #222;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f4f4;
+      color: var(--dark);
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: var(--maroon-2);
+      color: var(--light);
+      width: 240px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .menu a {
+      color: var(--light);
+      text-decoration: none;
+      display: block;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .menu a:hover, .menu a.active {
+      background: var(--accent);
+    }
+
+    /* Content */
+    .content {
+      flex: 1;
+      padding: 25px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--light);
+      padding: 15px 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      font-size: 22px;
+      color: var(--maroon-2);
+    }
+    header button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .dashboard-cards {
+      margin-top: 25px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--light);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      color: var(--maroon-1);
+    }
+    .card p {
+      margin-top: 8px;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <h2>🏆 Liga Maruichi</h2>
+      <div class="menu">
+  <a href="admin_dashboard.html" class="active">🏠 Dashboard</a>
+  <a href="pengumuman.html">📢 Pengumuman</a>
+  <a href="jadwal.html">📅 Jadwal</a>
+  <a href="hasil.html">⚽ Hasil Pertandingan</a>
+  <a href="kontak.html">👥 Kontak</a>
+</div>
+
+    </div>
+    <a href="login_admin.html" style="color:#fff;text-align:center;margin-top:20px;">🚪 Logout</a>
+  </div>
+
+  <div class="content">
+    <header>
+      <h1>Selamat Datang, Admin!</h1>
+      <button onclick="alert('Fitur coming soon!')">+ Tambah Data</button>
+    </header>
+
+    <section class="dashboard-cards">
+      <div class="card">
+        <h3>Total Tim</h3>
+        <p>24 Tim Terdaftar</p>
+      </div>
+      <div class="card">
+        <h3>Pertandingan Hari Ini</h3>
+        <p>3 Jadwal Aktif</p>
+      </div>
+      <div class="card">
+        <h3>Pengumuman Aktif</h3>
+        <p>2 Pengumuman</p>
+      </div>
+      <div class="card">
+        <h3>Peserta Baru</h3>
+        <p>5 Tim Mendaftar Minggu Ini</p>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Liga Maruichi Cup
+    </footer>
+  </div>
+</body>
+</html>
